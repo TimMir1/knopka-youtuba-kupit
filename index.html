@@ -53,15 +53,23 @@
         }
         .text {
             color: #fff;
-            font-size: 16px;
+            font-size: 10px;
             margin: 5px 0;
             text-align: center;
             width: 80%;
         }
         .name {
-            font-size: 18px;
+            font-size: 10px;
             font-weight: bold;
             text-transform: uppercase;
+        }
+        .desc-text { /* Новый класс для описания */
+            color: #fff;
+            font-size: 12px; /* Размер шрифта для описания */
+            margin: 5px 0;  /* Добавляем немного больше пространства */
+            text-align: center;
+            width: 80%;
+            font-style: arialc; /* Можно добавить стиль, если нужно */
         }
         .youtube-logo {
             position: absolute;
@@ -113,8 +121,8 @@
         <div class="play-button">
             <div class="play-icon"></div>
             <div class="text" id="presentedText">Presented to</div>
-            <div class="text name" id="nameText">Сергей Смирнов - ВРАЧ - КИНЕЗИОТЕРАПЕВТ</div>
-            <div class="text" id="descText">For passing 100,000 subscribers</div>
+            <div class="text name" id="nameText">Твой канал</div>
+            <div class="desc-text" id="descText">For passing 100,000 subscribers</div> <!-- Новый класс для описания -->
             <div class="youtube-logo">YouTube</div>
         </div>
         <div class="input-container">

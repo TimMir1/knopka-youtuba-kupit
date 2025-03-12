@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройка YouTube Play Button</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #bdc3c7);
+        }
+        .container {
+            text-align: center;
+        }
+        .play-button {
+            width: 300px;
+            height: 400px;
+            background: linear-gradient(135deg, #d3d3d3, #a9a9a9, #d3d3d3);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 20px;
+            border: 2px solid #999;
+        }
+        .play-icon {
+            width: 150px;
+            height: 100px;
+            background: #1c2526;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .play-icon::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 40px solid #fff;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+        }
+        .text {
+            color: #fff;
+            font-size: 16px;
+            margin: 5px 0;
+            text-align: center;
+            width: 80%;
+        }
+        .name {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .youtube-logo {
+            position: absolute;
+            bottom: 20px;
+            font-size: 20px;
+            color: #ff0000;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .youtube-logo::before {
+            content: '▶';
+            margin-right: 5px;
+        }
+        .input-container {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        label {
+            color: #fff;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .send-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .send-button:hover {
+            background-color: #1EBE5F;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="play-button">
+            <div class="play-icon"></div>
+            <div class="text" id="presentedText">Presented to</div>
+            <div class="text name" id="nameText">Сергей Смирнов - ВРАЧ - КИНЕЗИОТЕРАПЕВТ</div>
+            <div class="text" id="descText">For passing 100,000 subscribers</div>
+            <div class="youtube-logo">YouTube</div>
+        </div>
+        <div class="input-container">
+            <label for="presentedInput">Введите "Presented to":</label>
+            <input type="text" id="presentedInput" placeholder="Введите текст" value="Presented to">
+            <label for="nameInput">Введите имя:</label>
+            <input type="text" id="nameInput" placeholder="Введите имя" value="Сергей Смирнов - ВРАЧ - КИНЕЗИОТЕРАПЕВТ">
+            <label for="descInput">Введите описание:</label>
+            <input type="text" id="descInput" placeholder="Введите описание" value="For passing 100,000 subscribers">
+        </div>
+        <button class="send-button" onclick="sendToWhatsApp()">Отправить в WhatsApp</button>
+    </div>
+    <script>
+        function sendToWhatsApp() {
+            const presentedText = document.getElementById('presentedInput').value;
+            const nameText = document.getElementById('nameInput').value;
+            const descText = document.getElementById('descInput').value;
+            const phoneNumber = "79779662521";
+
+            const message = `📜 Данные для YouTube Play Button:\n\n🏆 ${presentedText}\n👤 ${nameText}\n📜 ${descText}`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

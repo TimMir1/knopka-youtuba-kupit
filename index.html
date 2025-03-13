@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Настройка YouTube Play Button</title>
+    <title>Заказать кнопку ютуба</title>
     <style>
         body {
             margin: 0;
@@ -63,13 +63,12 @@
             font-weight: bold;
             text-transform: uppercase;
         }
-        .desc-text { /* Новый класс для описания */
+        .desc-text {
             color: #fff;
-            font-size: 12px; /* Размер шрифта для описания */
-            margin: 5px 0;  /* Добавляем немного больше пространства */
+            font-size: 12px;
+            margin: 5px 0;
             text-align: center;
             width: 80%;
-            font-style: arialc; /* Можно добавить стиль, если нужно */
         }
         .youtube-logo {
             position: absolute;
@@ -122,20 +121,27 @@
             <div class="play-icon"></div>
             <div class="text" id="presentedText">Presented to</div>
             <div class="text name" id="nameText">Твой канал</div>
-            <div class="desc-text" id="descText">For passing 100,000 subscribers</div> <!-- Новый класс для описания -->
+            <div class="desc-text" id="descText">For passing 100,000 subscribers</div>
             <div class="youtube-logo">YouTube</div>
         </div>
         <div class="input-container">
             <label for="presentedInput">Введите "Presented to":</label>
-            <input type="text" id="presentedInput" placeholder="Введите текст" value="Presented to">
+            <input type="text" id="presentedInput" placeholder="Введите текст" value="Presented to" oninput="updateText()">
             <label for="nameInput">Введите имя:</label>
-            <input type="text" id="nameInput" placeholder="Введите имя" value="Напиши свой канал">
+            <input type="text" id="nameInput" placeholder="Введите имя" value="Твой канал" oninput="updateText()">
             <label for="descInput">Введите описание:</label>
-            <input type="text" id="descInput" placeholder="Введите описание" value="For passing 100,000 subscribers">
+            <input type="text" id="descInput" placeholder="Введите описание" value="For passing 100,000 subscribers" oninput="updateText()">
         </div>
-        <button class="send-button" onclick="sendToWhatsApp()">Заказать в WhatsApp</button>
+        <button class="send-button" id="sendButton" onclick="sendToWhatsApp()">Заказать в WhatsApp</button>
     </div>
     <script>
+        function updateText() {
+            document.getElementById('presentedText').textContent = document.getElementById('presentedInput').value;
+            document.getElementById('nameText').textContent = document.getElementById('nameInput').value;
+            document.getElementById('descText').textContent = document.getElementById('descInput').value;
+            document.getElementById('sendButton').textContent = `Заказать: ${document.getElementById('nameInput').value}`;
+        }
+
         function sendToWhatsApp() {
             const presentedText = document.getElementById('presentedInput').value;
             const nameText = document.getElementById('nameInput').value;
@@ -143,7 +149,6 @@
             const phoneNumber = "79779662521";
 
             const message = `📜 Данные для YouTube Play Button:\n\n🏆 ${presentedText}\n👤 ${nameText}\n📜 ${descText}`;
-
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 

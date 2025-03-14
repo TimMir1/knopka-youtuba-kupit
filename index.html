@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заказать кнопку ютуба</title>
+    <title>Настройка YouTube Play Button</title>
     <style>
         body {
             margin: 0;
@@ -21,67 +21,41 @@
         .play-button {
             width: 300px;
             height: 400px;
-            background: linear-gradient(135deg, #d3d3d3, #a9a9a9, #d3d3d3);
+            background-image: url('play-button-image.png');
+            background-size: 95%;
+            background-repeat: no-repeat;
+            background-position: center;
             border-radius: 20px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             position: relative;
             margin-bottom: 20px;
             border: 2px solid #999;
+            padding-bottom: 40px; /* Чуть меньше опускаем текст */
         }
-        .play-icon {
-            width: 150px;
-            height: 100px;
-            background: #1c2526;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .play-icon::before {
-            content: '';
-            display: block;
-            width: 0;
-            height: 0;
-            border-left: 40px solid #fff;
-            border-top: 20px solid transparent;
-            border-bottom: 20px solid transparent;
+        .text, .name, .desc-text {
+            text-align: center;
+            width: 90%;
+            color: #fff;
+            position: relative;
         }
         .text {
-            color: #fff;
             font-size: 10px;
-            margin: 5px 0;
-            text-align: center;
-            width: 80%;
+            font-weight: bold;
+            margin-bottom: 6px;
         }
         .name {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             text-transform: uppercase;
+            margin-bottom: 6px;
         }
         .desc-text {
-            color: #fff;
-            font-size: 12px;
-            margin: 5px 0;
-            text-align: center;
-            width: 80%;
-        }
-        .youtube-logo {
-            position: absolute;
-            bottom: 20px;
-            font-size: 20px;
-            color: #fff;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        .youtube-logo::before {
-            content: '▶';
-            margin-right: 5px;
+            font-size: 11px;
+            margin-bottom: 85px; /* Поднял текст чуть выше */
         }
         .input-container {
             margin-top: 20px;
@@ -93,7 +67,27 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
+            text-align: center; /* Центрируем текст */
+            transition: all 0.3s ease;
         }
+
+        input.active {
+            border-color: #25D366;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.8); /* Увеличен эффект свечения */
+            animation: highlight 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes highlight {
+            0% {
+                background-color: #f4f4f4;
+                box-shadow: 0 0 10px rgba(37, 211, 102, 0.5);
+            }
+            100% {
+                background-color: #e0e0e0;
+                box-shadow: 0 0 20px rgba(37, 211, 102, 0.8); /* Увеличена интенсивность свечения */
+            }
+        }
+
         label {
             color: #fff;
             font-size: 14px;
@@ -118,11 +112,9 @@
 <body>
     <div class="container">
         <div class="play-button">
-            <div class="play-icon"></div>
             <div class="text" id="presentedText">Presented to</div>
             <div class="text name" id="nameText">Твой канал</div>
             <div class="desc-text" id="descText">For passing 100,000 subscribers</div>
-            <div class="youtube-logo">YouTube</div>
         </div>
         <div class="input-container">
             <label for="presentedInput">Введите "Presented to":</label>
@@ -132,7 +124,7 @@
             <label for="descInput">Введите описание:</label>
             <input type="text" id="descInput" placeholder="Введите описание" value="For passing 100,000 subscribers" oninput="updateText()">
         </div>
-        <button class="send-button" id="sendButton" onclick="sendToWhatsApp()">Заказать в WhatsApp</button>
+        <button class="send-button" id="sendButton" onclick="sendToWhatsApp()">Отправить заказа по WhatsApp</button>
     </div>
     <script>
         function updateText() {
@@ -148,12 +140,19 @@
             const descText = document.getElementById('descInput').value;
             const phoneNumber = "79779662521";
 
-            const message = `📜 Данные для YouTube Play Button:\n\n🏆 ${presentedText}\n👤 ${nameText}\n📜 ${descText}`;
+            const message = `Данные для YouTube Play Button:\n\n${presentedText}\n${nameText}\n${descText}`;
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
             window.open(whatsappUrl, '_blank');
         }
+
+        // Добавляем класс для анимации сразу после загрузки страницы
+        window.onload = function() {
+            document.getElementById('presentedInput').classList.add('active');
+            document.getElementById('nameInput').classList.add('active');
+            document.getElementById('descInput').classList.add('active');
+        };
     </script>
 </body>
 </html>

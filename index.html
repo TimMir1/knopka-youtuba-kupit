@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Купить кнопку YouTube в Авито с доставкой – Золотые и Серебряные</title>
-    <meta name="description" content="Купить кнопку YouTube в Авито с доставкой. Персонализированные золотые и серебряные кнопки YouTube. Высокое качество, уникальный дизайн. Закажите прямо сейчас!">
-    <meta name="keywords" content="купить кнопку YouTube, кнопка YouTube в Авито, купить с доставкой, заказать кнопку YouTube, кнопка YouTube с доставкой, золотая кнопка YouTube, серебряная кнопка YouTube, подарки для ютуберов, YouTube Play Button заказать">
-    <meta name="author" content="Ваше Имя или Компания">
+    <title>Настройка YouTube Play Button</title>
+    <meta name="description" content="Закажите золотую или серебряную кнопку YouTube с доставкой. Купить YouTube Play Button на заказ, персонализированные награды для ютуберов.">
+    <meta name="keywords" content="купить YouTube Play Button, золотая кнопка YouTube, серебряная кнопка YouTube, заказать кнопку YouTube, купить на Авито, купить с доставкой, YouTube награда, персонализированная кнопка YouTube, купить золотую кнопку, купить серебряную кнопку, доставка YouTube кнопки, награда для ютуберов, купить YouTube Play Button дешево, заказать на Авито с доставкой">
+    <meta name="author" content="xAI">
     <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Настройка YouTube Play Button">
+    <meta property="og:description" content="Персонализируйте и закажите золотую или серебряную кнопку YouTube с доставкой!">
+    <meta property="og:image" content="play-button-image2.png">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Настройка YouTube Play Button">
+    <meta name="twitter:description" content="Персонализируйте и закажите золотую или серебряную кнопку YouTube с доставкой!">
+    <meta name="twitter:image" content="play-button-image2.png">
     <style>
         body {
             margin: 0;
@@ -15,17 +25,27 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            height: 100vh;
+            min-height: 100vh;
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #2c3e50, #bdc3c7);
-            padding-top: 10px;
+            padding: 20px 10px; /* Увеличил отступ сверху */
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #fff;
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            text-align: center;
         }
         .container {
             display: flex;
-            gap: 20px;
-            justify-content: center;
             flex-wrap: wrap;
-            margin-top: 10px;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px; /* Ограничил максимальную ширину */
+            margin: 0 auto;
         }
         .play-button {
             width: 300px;
@@ -38,12 +58,8 @@
             position: relative;
             margin-bottom: 20px;
         }
-        .gold {
-            background-image: url('play-button-image2.png');
-        }
-        .silver {
-            background-image: url('play-button-image.png');
-        }
+        .gold { background-image: url('play-button-image2.png'); }
+        .silver { background-image: url('play-button-image.png'); }
         .text, .desc-text {
             position: absolute;
             color: #fff;
@@ -52,33 +68,28 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        .text {
-            top: 62%;
-            font-size: 10px;
-        }
-        .name {
-            top: 66%;
-            font-size: 11px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        .desc-text {
-            top: 70%;
-            font-size: 11px;
-            white-space: nowrap;
-        }
+        .text { top: 62%; font-size: 10px; }
+        .name { top: 66%; font-size: 11px; font-weight: bold; text-transform: uppercase; }
+        .desc-text { top: 70%; font-size: 11px; white-space: nowrap; }
         .input-container { 
             margin-top: 20px; 
-            text-align: center; 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 300px; /* Ограничил ширину для центрирования */
         }
         input {
             padding: 5px;
-            margin: 5px;
-            width: 250px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 250px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
             text-align: center;
+            box-sizing: border-box;
         }
         label { 
             color: #fff; 
@@ -86,67 +97,53 @@
             display: block; 
             margin-bottom: 5px; 
         }
-        .gold-label {
-            color: #FFD700; /* Золотой цвет для метки золотой кнопки */
-        }
-        .silver-label {
-            color: #C0C0C0; /* Серебряный цвет для метки серебряной кнопки */
-        }
-        .send-button {
+        .gold-label { color: #FFD700; }
+        .silver-label { color: #C0C0C0; }
+        .send-button, .reset-button {
             margin-top: 10px;
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #25D366;
-            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-        .send-button:hover { 
-            background-color: #1EBE5F; 
-        }
-        .whatsapp-button {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .send-button { background-color: #25D366; color: white; }
+        .send-button:hover { background-color: #1EBE5F; }
+        .reset-button { background-color: #e74c3c; color: white; }
+        .reset-button:hover { background-color: #c0392b; }
+        .whatsapp-button { 
+            margin-top: 20px; 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px;
+            width: 100%;
+            max-width: 300px; /* Ограничил ширину для центрирования */
         }
         .contact-info {
             margin-top: 30px;
             text-align: center;
             color: white;
             font-size: 14px;
+            width: 100%;
+            max-width: 600px; /* Ограничил ширину для центрирования */
         }
-        .contact-info a {
-            color: #25D366;
-            text-decoration: none;
-        }
-        .work-examples-button {
-            margin-top: 30px;
-            padding: 15px 25px;
-            font-size: 18px;
-            background-color: #25D366;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .work-examples-button:hover {
-            background-color: #1EBE5F;
-        }
+        .contact-info a { color: #25D366; text-decoration: none; }
+        .contact-info button { margin: 5px; }
         @media (max-width: 768px) {
-            .play-button {
-                width: 250px;
-                height: 350px;
-            }
+            .play-button { width: 250px; height: 350px; }
+            .text { font-size: 9px; }
+            .name { font-size: 10px; }
+            .desc-text { font-size: 9px; }
+            .container { flex-direction: column; align-items: center; }
+            .input-container, .whatsapp-button { max-width: 250px; }
         }
     </style>
 </head>
 <body>
+    <h1>Персонализируйте свою YouTube Play Button</h1>
     <div class="container">
         <div>
-            <div class="play-button gold" title="Золотая кнопка">
+            <div class="play-button gold" title="Золотая кнопка" aria-label="Золотая кнопка YouTube">
                 <div class="text" id="goldPresented">Presented to</div>
                 <div class="text name" id="goldName">Твой канал</div>
                 <div class="desc-text" id="goldDesc">For passing 1,000,000 subscribers</div>
@@ -154,18 +151,19 @@
             <div class="input-container">
                 <label class="gold-label">Золотая кнопка (350х403мм)</label>
                 <label>Поменять текст</label>
-                <input type="text" id="goldPresentedInput" value="Presented to" oninput="updateText('gold')">
+                <input type="text" id="goldPresentedInput" placeholder="Presented to" value="Presented to" oninput="updateText('gold')">
                 <label>Введите имя для золотой кнопки:</label>
-                <input type="text" id="goldInput" value="Твой канал" oninput="updateText('gold')">
+                <input type="text" id="goldInput" placeholder="Твой канал" value="Твой канал" oninput="updateText('gold')">
                 <label>Введите описание для золотой кнопки:</label>
-                <input type="text" id="goldDescInput" value="For passing 1,000,000 subscribers" oninput="updateText('gold')">
+                <input type="text" id="goldDescInput" placeholder="For passing 1,000,000 subscribers" value="For passing 1,000,000 subscribers" oninput="updateText('gold')">
             </div>
             <div class="whatsapp-button">
                 <button class="send-button" onclick="sendToWhatsApp('gold')">Заказать золотую</button>
+                <button class="reset-button" onclick="resetText('gold')">Сбросить</button>
             </div>
         </div>
         <div>
-            <div class="play-button silver" title="Серебряная кнопка">
+            <div class="play-button silver" title="Серебряная кнопка" aria-label="Серебряная кнопка YouTube">
                 <div class="text" id="silverPresented">Presented to</div>
                 <div class="text name" id="silverName">Твой канал</div>
                 <div class="desc-text" id="silverDesc">For passing 100,000 subscribers</div>
@@ -173,36 +171,40 @@
             <div class="input-container">
                 <label class="silver-label">Серебряная кнопка (250х305мм)</label>
                 <label>Поменять текст</label>
-                <input type="text" id="silverPresentedInput" value="Presented to" oninput="updateText('silver')">
+                <input type="text" id="silverPresentedInput" placeholder="Presented to" value="Presented to" oninput="updateText('silver')">
                 <label>Введите имя для серебряной кнопки:</label>
-                <input type="text" id="silverInput" value="Твой канал" oninput="updateText('silver')">
+                <input type="text" id="silverInput" placeholder="Твой канал" value="Твой канал" oninput="updateText('silver')">
                 <label>Введите описание для серебряной кнопки:</label>
-                <input type="text" id="silverDescInput" value="For passing 100,000 subscribers" oninput="updateText('silver')">
+                <input type="text" id="silverDescInput" placeholder="For passing 100,000 subscribers" value="For passing 100,000 subscribers" oninput="updateText('silver')">
             </div>
             <div class="whatsapp-button">
                 <button class="send-button" onclick="sendToWhatsApp('silver')">Заказать серебряную</button>
+                <button class="reset-button" onclick="resetText('silver')">Сбросить</button>
             </div>
         </div>
     </div>
     <div class="contact-info">
         <p>Контакты:</p>
-        <button class="send-button" onclick="window.open('https://t.me/knopka_youtuba', '_blank')">ПРИМЕРЫ РАБОТ</button>
+        <button class="send-button" onclick="window.open('https://t.me/knopka_youtuba', '_blank')">Примеры работ</button>
         <button class="send-button" onclick="window.open('tel:+79779662521')">Телефон: +7 (977) 966-25-21</button>
     </div>
 
     <script>
         function updateText(type) {
-            document.getElementById(`${type}Presented`).textContent = document.getElementById(`${type}PresentedInput`).value;
-            document.getElementById(`${type}Name`).textContent = document.getElementById(`${type}Input`).value;
-            document.getElementById(`${type}Desc`).textContent = document.getElementById(`${type}DescInput`).value;
+            document.getElementById(`${type}Presented`).textContent = document.getElementById(`${type}PresentedInput`).value || "Presented to";
+            document.getElementById(`${type}Name`).textContent = document.getElementById(`${type}Input`).value || "Твой канал";
+            document.getElementById(`${type}Desc`).textContent = document.getElementById(`${type}DescInput`).value || (type === 'gold' ? "For passing 1,000,000 subscribers" : "For passing 100,000 subscribers");
+        }
+
+        function resetText(type) {
+            document.getElementById(`${type}PresentedInput`).value = "Presented to";
+            document.getElementById(`${type}Input`).value = "Твой канал";
+            document.getElementById(`${type}DescInput`).value = type === 'gold' ? "For passing 1,000,000 subscribers" : "For passing 100,000 subscribers";
+            updateText(type);
         }
 
         function sendToWhatsApp(type) {
             let presentedText = document.getElementById(`${type}PresentedInput`).value;
             let nameText = document.getElementById(`${type}Input`).value;
             let descText = document.getElementById(`${type}DescInput`).value;
-            let phoneNumber = "79779662521";
-
-            let message = `Данные для YouTube Play Button (${type === 'gold' ? 'Золотая' : 'Серебряная'}):\n\n${presentedText}\n${nameText}\n${descText}`;
-            let encodedMessage = encodeURIComponent(message);
-            let whatsappUrl =
+            let phoneNumber = "79779662521

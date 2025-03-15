@@ -247,7 +247,7 @@
     <div class="contact-info">
         <p>Контакты:</p>
         <button class="send-button" onclick="window.open('https://t.me/knopka_youtuba', '_blank')">Примеры работ</button>
-        <button class="send-button" onclick="window.open('tel:+79779662521')">Телефон: +7 (977) 966-25-21</button>
+        <button class="send-button" onclick="window.open('tel:+79779662521')">Позвонить</button>
     </div>
 
     <script>
@@ -283,7 +283,7 @@
             let descText = document.getElementById(`${type}DescInput`).value;
             let phoneNumber = "79779662521";
 
-            let message = `Данные для YouTube Play Button (${type === 'gold' ? 'Золотая' : 'Серебряная'}):\n\n${presentedText}\n${nameText}\n${descText}`;
+            let message = `Заказать кнопку с этим названием (${type === 'gold' ? 'Золотая' : 'Серебряная'}):\n\n${presentedText}\n${nameText}\n${descText}`;
             let encodedMessage = encodeURIComponent(message);
             let whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 

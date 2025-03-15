@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Настройка YouTube Play Button</title>
+    <title>Купить кнопку ютуба YouTube Play Button</title>
     <meta name="description" content="Закажите золотую или серебряную кнопку YouTube с доставкой. Купить YouTube Play Button на заказ, персонализированные награды для ютуберов.">
     <meta name="keywords" content="купить YouTube Play Button, золотая кнопка YouTube, серебряная кнопка YouTube, заказать кнопку YouTube, купить на Авито, купить с доставкой, YouTube награда, персонализированная кнопка YouTube, купить золотую кнопку, купить серебряную кнопку, доставка YouTube кнопки, награда для ютуберов, купить YouTube Play Button дешево, заказать на Авито с доставкой">
-    <meta name="author" content="xAI">
+    <meta name="author" content="MIRA">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
     <meta property="og:title" content="Настройка YouTube Play Button">
@@ -54,7 +54,7 @@
             background-repeat: no-repeat;
             background-position: center;
             border-radius: 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
             position: relative;
             margin-bottom: 20px;
         }
@@ -85,11 +85,63 @@
             margin: 5px 0;
             width: 100%;
             max-width: 250px;
-            border: 1px solid #ccc;
+            border: 2px solid #ccc; /* Увеличиваем толщину обводки */
             border-radius: 5px;
             font-size: 14px;
             text-align: center;
             box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* Анимация для золотых полей */
+        .gold-input {
+            animation: highlight-gold 2s infinite ease-in-out;
+        }
+        /* Анимация для серебряных полей */
+        .silver-input {
+            animation: highlight-silver 2s infinite ease-in-out;
+        }
+        /* Останавливаем анимацию при фокусе и применяем соответствующий цвет */
+        .gold-input:focus {
+            border-color: #FFD700;
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            outline: none;
+            animation: none;
+        }
+        .silver-input:focus {
+            border-color: #C0C0C0;
+            box-shadow: 0 0 5px rgba(192, 192, 192, 0.5);
+            outline: none;
+            animation: none;
+        }
+        /* Анимация подсветки для золотых полей */
+        @keyframes highlight-gold {
+            0% {
+                border-color: #ccc;
+                box-shadow: 0 0 2px rgba(255, 215, 0, 0.2);
+            }
+            50% {
+                border-color: #FFD700;
+                box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            }
+            100% {
+                border-color: #ccc;
+                box-shadow: 0 0 2px rgba(255, 215, 0, 0.2);
+            }
+        }
+        /* Анимация подсветки для серебряных полей */
+        @keyframes highlight-silver {
+            0% {
+                border-color: #ccc;
+                box-shadow: 0 0 2px rgba(192, 192, 192, 0.2);
+            }
+            50% {
+                border-color: #C0C0C0;
+                box-shadow: 0 0 8px rgba(192, 192, 192, 0.6);
+            }
+            100% {
+                border-color: #ccc;
+                box-shadow: 0 0 2px rgba(192, 192, 192, 0.2);
+            }
         }
         label { 
             color: #fff; 
@@ -129,6 +181,15 @@
         }
         .contact-info a { color: #25D366; text-decoration: none; }
         .contact-info button { margin: 5px; }
+
+        /* Увеличиваем размер кнопок в десктопной версии */
+        @media (min-width: 769px) {
+            .send-button, .reset-button {
+                padding: 12px 30px;
+                font-size: 18px;
+            }
+        }
+
         @media (max-width: 768px) {
             .play-button { width: 250px; height: 350px; }
             .text { font-size: 9px; }
@@ -151,11 +212,11 @@
             <div class="input-container">
                 <label class="gold-label">Золотая кнопка (350х403мм)</label>
                 <label>Поменять текст</label>
-                <input type="text" id="goldPresentedInput" placeholder="Presented to" value="Presented to" oninput="updateText('gold')">
+                <input type="text" id="goldPresentedInput" class="gold-input" placeholder="Presented to" value="Presented to" oninput="updateText('gold')">
                 <label>Введите имя для золотой кнопки:</label>
-                <input type="text" id="goldInput" placeholder="Твой канал" value="Твой канал" oninput="updateText('gold')">
+                <input type="text" id="goldInput" class="gold-input" placeholder="Твой канал" value="Твой канал" oninput="updateText('gold')">
                 <label>Введите описание для золотой кнопки:</label>
-                <input type="text" id="goldDescInput" placeholder="For passing 1,000,000 subscribers" value="For passing 1,000,000 subscribers" oninput="updateText('gold')">
+                <input type="text" id="goldDescInput" class="gold-input" placeholder="For passing 1,000,000 subscribers" value="For passing 1,000,000 subscribers" oninput="updateText('gold')">
             </div>
             <div class="whatsapp-button">
                 <button class="send-button" onclick="sendToWhatsApp('gold')">Заказать золотую</button>
@@ -171,11 +232,11 @@
             <div class="input-container">
                 <label class="silver-label">Серебряная кнопка (250х305мм)</label>
                 <label>Поменять текст</label>
-                <input type="text" id="silverPresentedInput" placeholder="Presented to" value="Presented to" oninput="updateText('silver')">
+                <input type="text" id="silverPresentedInput" class="silver-input" placeholder="Presented to" value="Presented to" oninput="updateText('silver')">
                 <label>Введите имя для серебряной кнопки:</label>
-                <input type="text" id="silverInput" placeholder="Твой канал" value="Твой канал" oninput="updateText('silver')">
+                <input type="text" id="silverInput" class="silver-input" placeholder="Твой канал" value="Твой канал" oninput="updateText('silver')">
                 <label>Введите описание для серебряной кнопки:</label>
-                <input type="text" id="silverDescInput" placeholder="For passing 100,000 subscribers" value="For passing 100,000 subscribers" oninput="updateText('silver')">
+                <input type="text" id="silverDescInput" class="silver-input" placeholder="For passing 100,000 subscribers" value="For passing 100,000 subscribers" oninput="updateText('silver')">
             </div>
             <div class="whatsapp-button">
                 <button class="send-button" onclick="sendToWhatsApp('silver')">Заказать серебряную</button>
@@ -213,7 +274,7 @@
             document.getElementById(`${type}PresentedInput`).value = "Presented to";
             document.getElementById(`${type}Input`).value = "Твой канал";
             document.getElementById(`${type}DescInput`).value = type === 'gold' ? "For passing 1,000,000 subscribers" : "For passing 100,000 subscribers";
-            updateText(type); // Обновляем текст на кнопке после сброса
+            updateText(type);
         }
 
         function sendToWhatsApp(type) {

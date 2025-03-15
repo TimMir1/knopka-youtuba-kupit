@@ -54,7 +54,7 @@
             background-repeat: no-repeat;
             background-position: center;
             border-radius: 0;
-            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             position: relative;
             margin-bottom: 20px;
         }
@@ -85,62 +85,37 @@
             margin: 5px 0;
             width: 100%;
             max-width: 250px;
-            border: 2px solid #ccc; /* Увеличиваем толщину обводки */
+            border: 2px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
             text-align: center;
             box-sizing: border-box;
             transition: border-color 0.5s ease, box-shadow 0.3s ease;
         }
-        /* Анимация для золотых полей */
-        .gold-input {
-            animation: highlight-gold 2s infinite ease-in-out;
+        /* Анимация для всех полей */
+        .gold-input, .silver-input {
+            animation: highlight 3s infinite ease-in-out;
         }
-        /* Анимация для серебряных полей */
-        .silver-input {
-            animation: highlight-silver 2s infinite ease-in-out;
-        }
-        /* Останавливаем анимацию при фокусе и применяем соответствующий цвет */
-        .gold-input:focus {
-            border-color: #C0C0C0;
-            box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+        /* Останавливаем анимацию при фокусе и применяем другой цвет */
+        .gold-input:focus, .silver-input:focus {
+            border-color: #25D366; /* Зелёный цвет при фокусе */
+            box-shadow: 0 0 5px rgba(37, 211, 102, 0.5);
             outline: none;
             animation: none;
         }
-        .silver-input:focus {
-            border-color: #FFD700;
-            box-shadow: 0 0 5px rgba(192, 192, 192, 0.5);
-            outline: none;
-            animation: none;
-        }
-        /* Анимация подсветки для золотых полей */
-        @keyframes highlight-gold {
+        /* Анимация подсветки (общий цвет) */
+        @keyframes highlight {
             0% {
                 border-color: #ccc;
-                box-shadow: 0 0 2px rgba(255, 215, 0, 0.2);
+                box-shadow: 0 0 2px rgba(224, 224, 224, 0.2); /* Светло-серый #E0E0E0 */
             }
             50% {
-                border-color: #FFD700;
-                box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+                border-color: #E0E0E0;
+                box-shadow: 0 0 6px rgba(224, 224, 224, 0.4);
             }
             100% {
                 border-color: #ccc;
-                box-shadow: 0 0 2px rgba(255, 215, 0, 0.2);
-            }
-        }
-        /* Анимация подсветки для серебряных полей */
-        @keyframes highlight-silver {
-            0% {
-                border-color: #ccc;
-                box-shadow: 0 0 2px rgba(192, 192, 192, 0.2);
-            }
-            50% {
-                border-color: #C0C0C0;
-                box-shadow: 0 0 8px rgba(192, 192, 192, 0.6);
-            }
-            100% {
-                border-color: #ccc;
-                box-shadow: 0 0 2px rgba(192, 192, 192, 0.2);
+                box-shadow: 0 0 2px rgba(224, 224, 224, 0.2);
             }
         }
         label { 
@@ -153,11 +128,12 @@
         .silver-label { color: #C0C0C0; }
         .send-button, .reset-button {
             margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 6px 12px; /* Ещё меньше */
+            font-size: 12px; /* Ещё меньше */
             border: none;
-            border-radius: 30px;
+            border-radius: 15px; /* Уменьшаем радиус */
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         .send-button { background-color: #25D366; color: white; }
         .send-button:hover { background-color: #1EBE5F; }
@@ -182,11 +158,11 @@
         .contact-info a { color: #25D366; text-decoration: none; }
         .contact-info button { margin: 5px; }
 
-        /* Увеличиваем размер кнопок в десктопной версии */
+        /* Десктопная версия кнопок */
         @media (min-width: 769px) {
             .send-button, .reset-button {
-                padding: 12px 30px;
-                font-size: 18px;
+                padding: 8px 16px; /* Ещё меньше */
+                font-size: 14px; /* Ещё меньше */
             }
         }
 

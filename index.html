@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Настройка YouTube Play Button</title>
+    <title>Заказать YouTube Play Button – Золотые и Серебряные</title>
+    <meta name="description" content="Персонализированные золотые и серебряные кнопки YouTube для каналов. Высокое качество, доставка по всему миру. Закажите уникальную кнопку сегодня!">
+    <meta name="keywords" content="YouTube Play Button, заказать кнопку YouTube, золотая кнопка YouTube, серебряная кнопка YouTube, персонализированные кнопки для YouTube, изготовление кнопок YouTube, кнопка YouTube на заказ, подарки для ютуберов">
+    <meta name="author" content="Ваше Имя или Компания">
+    <meta name="robots" content="index, follow">
     <style>
         body {
             margin: 0;
@@ -192,19 +196,18 @@
             document.getElementById(`${type}Name`).textContent = document.getElementById(`${type}Input`).value;
             document.getElementById(`${type}Desc`).textContent = document.getElementById(`${type}DescInput`).value;
         }
-        
+
         function sendToWhatsApp(type) {
             let presentedText = document.getElementById(`${type}PresentedInput`).value;
             let nameText = document.getElementById(`${type}Input`).value;
             let descText = document.getElementById(`${type}DescInput`).value;
             let phoneNumber = "79779662521";
-            
+
             let message = `Данные для YouTube Play Button (${type === 'gold' ? 'Золотая' : 'Серебряная'}):\n\n${presentedText}\n${nameText}\n${descText}`;
             let encodedMessage = encodeURIComponent(message);
             let whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
+
             window.open(whatsappUrl, '_blank');
         }
     </script>
 </body>
-</html>

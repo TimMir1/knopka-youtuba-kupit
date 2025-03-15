@@ -26,17 +26,20 @@
         .play-button {
             width: 300px;
             height: 400px;
-            background-image: url('play-button-image.png');
             background-size: 95%;
             background-repeat: no-repeat;
             background-position: center;
-            border-radius: 0px;
+            border-radius: 0;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             position: relative;
             margin-bottom: 20px;
         }
-        .gold { background-image: url('play-button-image2.png'); }
-        .silver { background-image: url('play-button-image.png'); }
+        .gold {
+            background-image: url('play-button-image2.png');
+        }
+        .silver {
+            background-image: url('play-button-image.png');
+        }
         .text, .desc-text {
             position: absolute;
             color: #fff;
@@ -60,7 +63,10 @@
             font-size: 11px;
             white-space: nowrap;
         }
-        .input-container { margin-top: 20px; text-align: center; }
+        .input-container { 
+            margin-top: 20px; 
+            text-align: center; 
+        }
         input {
             padding: 5px;
             margin: 5px;
@@ -69,50 +75,18 @@
             border-radius: 5px;
             font-size: 14px;
             text-align: center;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-            animation: glowAnimation 2s ease-in-out infinite alternate;
         }
-        input:focus {
-            background-color: #f0f0f0;
-            border-color: #FFD700; /* Золотой цвет для фокуса */
-        }
-        input:focus::placeholder {
-            color: #FFD700; /* Цвет подсказки при фокусе */
-        }
-
-        /* Мягкая анимация подсветки */
-        @keyframes glowAnimation {
-            0% {
-                box-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(255, 215, 0, 0.5);
-            }
-            100% {
-                box-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.6), 0 0 25px rgba(255, 215, 0, 0.9);
-            }
-        }
-
-        /* Мягкая серебряная подсветка для серебряной кнопки */
-        .silver input {
-            animation: silverGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes silverGlow {
-            0% {
-                box-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(192, 192, 192, 0.5);
-            }
-            100% {
-                box-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.6), 0 0 25px rgba(192, 192, 192, 0.9);
-            }
-        }
-
-        label {
-            color: #fff; /* Белый цвет для обычных меток */
-            font-size: 14px;
-            display: block;
-            margin-bottom: 5px;
+        label { 
+            color: #fff; 
+            font-size: 14px; 
+            display: block; 
+            margin-bottom: 5px; 
         }
         .gold-label {
-            color: #FFD700; /* Золотой цвет для меток с кнопками */
-            text-transform: uppercase;
+            color: #FFD700; /* Золотой цвет для метки золотой кнопки */
+        }
+        .silver-label {
+            color: #C0C0C0; /* Серебряный цвет для метки серебряной кнопки */
         }
         .send-button {
             margin-top: 10px;
@@ -124,7 +98,9 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        .send-button:hover { background-color: #1EBE5F; }
+        .send-button:hover { 
+            background-color: #1EBE5F; 
+        }
         .whatsapp-button {
             margin-top: 20px;
             display: flex;
@@ -141,83 +117,84 @@
             color: #25D366;
             text-decoration: none;
         }
-        .examples-button {
+        .work-examples-button {
             margin-top: 30px;
-            padding: 10px 20px;
-            background-color: #007BFF;
+            padding: 15px 25px;
+            font-size: 18px;
+            background-color: #25D366;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
             cursor: pointer;
+            text-decoration: none;
         }
-        .examples-button:hover {
-            background-color: #0056b3;
+        .work-examples-button:hover {
+            background-color: #1EBE5F;
+        }
+        @media (max-width: 768px) {
+            .play-button {
+                width: 250px;
+                height: 350px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div>
-            <div class="play-button gold">
+            <div class="play-button gold" title="Золотая кнопка">
                 <div class="text" id="goldPresented">Presented to</div>
                 <div class="text name" id="goldName">Твой канал</div>
                 <div class="desc-text" id="goldDesc">For passing 1,000,000 subscribers</div>
             </div>
             <div class="input-container">
-                <label class="gold-label">ЗОЛОТАЯ КНОПКА (35Х43СМ)</label>
-                <label>ПОМЕНЯТЬ ТЕКСТ</label>
-                <input type="text" id="goldPresented" value="Presented to" oninput="updateText('gold')" placeholder="Presented to">
+                <label class="gold-label">Золотая кнопка (350х403мм)</label>
+                <label>Поменять текст</label>
+                <input type="text" id="goldPresentedInput" value="Presented to" oninput="updateText('gold')">
                 <label>Введите имя для золотой кнопки:</label>
-                <input type="text" id="goldInput" value="Твой канал" oninput="updateText('gold')" placeholder="Твой канал">
+                <input type="text" id="goldInput" value="Твой канал" oninput="updateText('gold')">
                 <label>Введите описание для золотой кнопки:</label>
-                <input type="text" id="goldDescInput" value="For passing 1,000,000 subscribers" oninput="updateText('gold')" placeholder="For passing 1,000,000 subscribers">
+                <input type="text" id="goldDescInput" value="For passing 1,000,000 subscribers" oninput="updateText('gold')">
             </div>
             <div class="whatsapp-button">
                 <button class="send-button" onclick="sendToWhatsApp('gold')">Заказать золотую</button>
             </div>
         </div>
         <div>
-            <div class="play-button silver">
+            <div class="play-button silver" title="Серебряная кнопка">
                 <div class="text" id="silverPresented">Presented to</div>
                 <div class="text name" id="silverName">Твой канал</div>
                 <div class="desc-text" id="silverDesc">For passing 100,000 subscribers</div>
             </div>
             <div class="input-container">
-                <label class="gold-label">СЕРЕБРЯНАЯ КНОПКА (25Х30СМ)</label>
-                <label>ПОМЕНЯТЬ ТЕКСТ</label>
-                <input type="text" id="silverPresented" value="Presented to" oninput="updateText('silver')" placeholder="Presented to">
+                <label class="silver-label">Серебряная кнопка (250х305мм)</label>
+                <label>Поменять текст</label>
+                <input type="text" id="silverPresentedInput" value="Presented to" oninput="updateText('silver')">
                 <label>Введите имя для серебряной кнопки:</label>
-                <input type="text" id="silverInput" value="Твой канал" oninput="updateText('silver')" placeholder="Твой канал">
+                <input type="text" id="silverInput" value="Твой канал" oninput="updateText('silver')">
                 <label>Введите описание для серебряной кнопки:</label>
-                <input type="text" id="silverDescInput" value="For passing 100,000 subscribers" oninput="updateText('silver')" placeholder="For passing 100,000 subscribers">
+                <input type="text" id="silverDescInput" value="For passing 100,000 subscribers" oninput="updateText('silver')">
             </div>
             <div class="whatsapp-button">
                 <button class="send-button" onclick="sendToWhatsApp('silver')">Заказать серебряную</button>
             </div>
         </div>
     </div>
-    
-    <!-- Кнопка для примеров работ -->
-    <div>
-        <button class="examples-button" onclick="window.location.href='https://t.me/knopka_youtuba'">ПРИМЕРЫ МОИХ РАБОТ</button>
-    </div>
-
     <div class="contact-info">
         <p>Контакты:</p>
-        <p>Email: <a href="mailto:your.email@example.com">timyur0530@mail.ru</a></p>
-        <p>Телефон: <a href="tel:+79779662521">+7 (977) 966-25-21</a></p>
+        <button class="send-button" onclick="window.open('https://t.me/knopka_youtuba', '_blank')">ПРИМЕРЫ РАБОТ</button>
+        <button class="send-button" onclick="window.open('tel:+79779662521')">Телефон: +7 (977) 966-25-21</button>
     </div>
-    
+
     <script>
         function updateText(type) {
-            document.getElementById(`${type}Presented`).textContent = document.getElementById(`${type}Presented`).value;
+            document.getElementById(`${type}Presented`).textContent = document.getElementById(`${type}PresentedInput`).value;
             document.getElementById(`${type}Name`).textContent = document.getElementById(`${type}Input`).value;
             document.getElementById(`${type}Desc`).textContent = document.getElementById(`${type}DescInput`).value;
         }
         
         function sendToWhatsApp(type) {
-            let presentedText = document.getElementById(`${type}Presented`).value;
+            let presentedText = document.getElementById(`${type}PresentedInput`).value;
             let nameText = document.getElementById(`${type}Input`).value;
             let descText = document.getElementById(`${type}DescInput`).value;
             let phoneNumber = "79779662521";
@@ -225,7 +202,8 @@
             let message = `Данные для YouTube Play Button (${type === 'gold' ? 'Золотая' : 'Серебряная'}):\n\n${presentedText}\n${nameText}\n${descText}`;
             let encodedMessage = encodeURIComponent(message);
             let whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            window.open(whatsappUrl, "_blank");
+            
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 </body>

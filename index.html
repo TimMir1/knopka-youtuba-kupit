@@ -28,7 +28,7 @@
             min-height: 100vh;
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #2c3e50, #bdc3c7);
-            padding: 20px 10px; /* Увеличил отступ сверху */
+            padding: 20px 10px;
             box-sizing: border-box;
         }
         h1 {
@@ -44,7 +44,7 @@
             align-items: flex-start;
             gap: 20px;
             width: 100%;
-            max-width: 1200px; /* Ограничил максимальную ширину */
+            max-width: 1200px;
             margin: 0 auto;
         }
         .play-button {
@@ -78,7 +78,7 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
-            max-width: 300px; /* Ограничил ширину для центрирования */
+            max-width: 300px;
         }
         input {
             padding: 5px;
@@ -117,7 +117,7 @@
             justify-content: center; 
             gap: 10px;
             width: 100%;
-            max-width: 300px; /* Ограничил ширину для центрирования */
+            max-width: 300px;
         }
         .contact-info {
             margin-top: 30px;
@@ -125,7 +125,7 @@
             color: white;
             font-size: 14px;
             width: 100%;
-            max-width: 600px; /* Ограничил ширину для центрирования */
+            max-width: 600px;
         }
         .contact-info a { color: #25D366; text-decoration: none; }
         .contact-info button { margin: 5px; }
@@ -190,21 +190,44 @@
     </div>
 
     <script>
+        // Вызываем обновление текста при загрузке страницы
+        window.onload = function() {
+            updateText('gold');
+            updateText('silver');
+        };
+
         function updateText(type) {
-            document.getElementById(`${type}Presented`).textContent = document.getElementById(`${type}PresentedInput`).value || "Presented to";
-            document.getElementById(`${type}Name`).textContent = document.getElementById(`${type}Input`).value || "Твой канал";
-            document.getElementById(`${type}Desc`).textContent = document.getElementById(`${type}DescInput`).value || (type === 'gold' ? "For passing 1,000,000 subscribers" : "For passing 100,000 subscribers");
+            const presented = document.getElementById(`${type}Presented`);
+            const name = document.getElementById(`${type}Name`);
+            const desc = document.getElementById(`${type}Desc`);
+            const presentedInput = document.getElementById(`${type}PresentedInput`);
+            const nameInput = document.getElementById(`${type}Input`);
+            const descInput = document.getElementById(`${type}DescInput`);
+
+            presented.textContent = presentedInput.value || "Presented to";
+            name.textContent = nameInput.value || "Твой канал";
+            desc.textContent = descInput.value || (type === 'gold' ? "For passing 1,000,000 subscribers" : "For passing 100,000 subscribers");
         }
 
         function resetText(type) {
             document.getElementById(`${type}PresentedInput`).value = "Presented to";
             document.getElementById(`${type}Input`).value = "Твой канал";
             document.getElementById(`${type}DescInput`).value = type === 'gold' ? "For passing 1,000,000 subscribers" : "For passing 100,000 subscribers";
-            updateText(type);
+            updateText(type); // Обновляем текст на кнопке после сброса
         }
 
         function sendToWhatsApp(type) {
             let presentedText = document.getElementById(`${type}PresentedInput`).value;
             let nameText = document.getElementById(`${type}Input`).value;
             let descText = document.getElementById(`${type}DescInput`).value;
-            let phoneNumber = "79779662521
+            let phoneNumber = "79779662521";
+
+            let message = `Данные для YouTube Play Button (${type === 'gold' ? 'Золотая' : 'Серебряная'}):\n\n${presentedText}\n${nameText}\n${descText}`;
+            let encodedMessage = encodeURIComponent(message);
+            let whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
